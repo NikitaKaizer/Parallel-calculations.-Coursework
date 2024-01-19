@@ -62,14 +62,15 @@ std::vector<std::string> InvertedIndex::ReadFileContent(const fs::path& filePath
 }
 
 void InvertedIndex::AddFile(const FileContent& fileContent) {
-    
+
     for (const auto& word : fileContent.content) {
         std::lock_guard<std::mutex> lock(mutex);
         if (!word.empty()) {
-            auto& fileList = m_hashTable.Search(word);
+            auto& fileList = m_hashTable.SearchInsert(word);
             if (std::find(fileList.begin(), fileList.end(), fileContent.filename) == fileList.end()) {
                 fileList.push_back(fileContent.filename);
             }
         }
     }
 }
+

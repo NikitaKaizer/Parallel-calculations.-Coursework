@@ -16,7 +16,7 @@ void HashTable<Key, Value>::Insert(const Key& word, const Value& fileNames) {
 }
 
 template <typename Key, typename Value>
-Value& HashTable<Key, Value>::Search(const Key& word) {
+Value& HashTable<Key, Value>::SearchInsert(const Key& word) {
     size_t index = HashFunctional(word);
 
     for (auto& node : m_table[index]) {

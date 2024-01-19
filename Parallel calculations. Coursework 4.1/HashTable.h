@@ -19,7 +19,7 @@ private:
 public:
     HashTable(size_t size = 5);
     void Insert(const Key& word, const Value& fileNames);
-    Value& Search(const Key& word);
+    Value& SearchInsert(const Key& word);
     void PrintAll() const;
     void ShowFileName(const Key& word) const;
 };

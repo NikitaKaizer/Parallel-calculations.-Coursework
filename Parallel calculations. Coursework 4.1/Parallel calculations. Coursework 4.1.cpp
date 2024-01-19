@@ -1,23 +1,23 @@
 #include <iostream>
 #include <chrono>
-#include "InvertedIndex.h"
+#include "invertedindex.h"
 using namespace std;
 
 int main() {
     system("chcp 65001");
 
-    // index.ShowFileName("for");
+    // index.showfilename("for");
 
-    for (int threadCount = 1; threadCount <= 10; ++threadCount) { 
+    for (int threadcount = 1; threadcount <= 10; ++threadcount) { 
         auto start = chrono::high_resolution_clock::now(); 
 
         InvertedIndex index;
-        index.IndexDirectory("datasets", threadCount);
+        index.IndexDirectory("datasets", threadcount);
 
         auto end = chrono::high_resolution_clock::now(); 
         chrono::duration<double> diff = end - start; 
 
-        cout << "Час, витрачений на " << threadCount << " потоки: "
+        cout << "час, витрачений на " << threadcount << " потоки: "
             << diff.count() << " секунди" << endl;
     }
 
